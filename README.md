@@ -8,13 +8,14 @@ and
 [@StevenWhisky4159](https://github.com/StevenWhisky4159)
 
 ## Algorithms
-1. Machine Learning/Convex Optimization
-2. Classical Fourier Analysis
+1. Discrete Fourier Transformation/Fast Fourier Transformation (DFT/FFT) implented on hardware
+2. Quantization Perception with slight code and low-dissipation-high-accuracy
+3. Online flow processing algorithms
 
 ## Implentations
-1. MATLAB Packages
-2. Python Packages/Soruce Code
-3. MMA Functions file .nb/.whl
+1. Cpp Programming Solution Project
+2.*  Python Packages/Soruce Code
+3.*  MMA Functions file .nb/.whl
 
 ## Results
 To be created
@@ -24,5 +25,7 @@ To be created
 
 ## Feedback
 1. Join us:
-2. pull requeset:
-3. error report:
+   Contact [Chai's Page](https://yotally.github.io)
+3. pull requeset:
+   Feel free to pull/copy the source code presented here while obeying the Opensource License/Protocol.
+4. error report:
