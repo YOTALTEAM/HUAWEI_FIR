@@ -28,6 +28,8 @@ namespace dsplib{
          * @note This function still needs further completion
          **/
         cvfp fft_backward(const cvfp& eval);
+
+        cvQfix fft_forward(const cvQfix& coef);
     }
 }
 

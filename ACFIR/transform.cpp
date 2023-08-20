@@ -130,5 +130,44 @@ namespace dsplib{
             }
             return coef;
         }
-    }
+
+        cvQfix fft_forward(const cvQfix& coef) {
+            int Qlen = coef[0].real.getQlen();
+            int n = 1, logn = 0;
+            for(int i = (coef.size()-1); i > 0; i /= 2) {n *= 2; logn++;}
+            cvQfix eval(n);
+            for(int i = 0; i < coef.size(); i++) eval[i] = coef[i];
+            for(int i = coef.size(); i < n; i++) eval[i] = cQfix(Qfix(0, Qlen), Qfix(0, Qlen));
+
+            // Prepare rootList
+            cvQfix RootList_rev(n / 2);
+            for(int i = 0; i < n / 2; i++) {
+                cQfix root(Qfix(cos(2.0 * pi * i / n), Qlen), Qfix(-sin(2.0 * pi * i / n), Qlen));
+                RootList_rev[bitrev(i, logn - 1)] = root;
+            }
+            for(int s = 0; s < logn; s++) {
+                int m = 1 << s;
+                int k = 1 << (logn - 1 - s); // the width of the bunch
+                // std::cout << ">>>>> STAGE = " << s << std::endl;
+                for(int i = 0; i < m; i++) {
+                    // cnfp W = RootList_rev[m+i];
+                    cQfix W = RootList_rev[i];
+                    // std::cout << " - - ADDRESS = " << bitrev(i, logn-1) << std::endl;
+                    // ui32 W = omegaList_rev[m+i];
+                    for(int j = 0; j < k; j++) {
+                        int j0 = 2 * k * i + j;
+                        int j1 = 2 * k * i + j + k;
+                        cQfix A = eval[j0];
+                        cQfix B = eval[j1];
+                        cQfix T = B * W;
+                        cQfix E = A + T;
+                        cQfix O = A - T;
+                        eval[j0] = E;
+                        eval[j1] = O;
+                    }
+                }
+            }
+            return eval;
+        }
+    }//trans
 }
