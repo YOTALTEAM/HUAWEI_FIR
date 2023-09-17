@@ -8,17 +8,17 @@ and
 [@StevenWhisky4159](https://github.com/StevenWhisky4159)
 
 ## Algorithms
-1. Discrete Fourier Transformation/Fast Fourier Transformation (DFT/FFT) implented on hardware
-2. Quantization Perception with slight code and low-dissipation-high-accuracy
-3. Online flow processing algorithms
+1. Discrete Fourier Transformation/Fast Fourier Transformation (DFT/FFT) implented on hardware, And approximate acceleration of FFT
+2. Machine Learning:   Quantization Perception with slight code and low-dissipation-high-accuracy (*)
+3. Online signal flow manupulator with redundant computation
 
 ## Implentations
 1. Cpp Programming Solution Project
-2.*  Python Packages/Soruce Code
-3.*  MMA Functions file .nb/.whl
+2. (*)  Python Packages/Soruce Code
+3. (*) MMA Functions file .nb/.whl
 
 ## Results
-To be created
+Tables and Diagrams
 
 ## Running
 To be created
